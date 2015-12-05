@@ -1,5 +1,6 @@
 package mx.irving.lop;
 
+import mx.irving.lop.difficulty14.UtopianTree;
 import mx.irving.lop.difficulty4.Staircase;
 import mx.irving.lop.difficulty8.PlusMinus;
 
@@ -23,9 +24,22 @@ public class Main {
         staircase.draw();
         */
 
+        /*
         Scanner scanner = new Scanner(System.in);
         PlusMinus plusMinus = new PlusMinus(Integer.parseInt(scanner.nextLine()));
         plusMinus.fillArray(scanner.nextLine());
         plusMinus.printPercentage();
+        */
+
+        Scanner scanner = new Scanner(System.in);
+        int testsC = Integer.parseInt(scanner.nextLine());
+        UtopianTree [] utopianTrees = new UtopianTree[testsC];
+        for (int t = 0; t < testsC; t++) {
+            int cycle = Integer.parseInt(scanner.nextLine());
+            utopianTrees[t] = new UtopianTree(cycle);
+        }
+        for (UtopianTree tree : utopianTrees) {
+            System.out.println("" + tree.height());
+        }
     }
 }
