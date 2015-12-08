@@ -1,5 +1,9 @@
 package mx.irving.lop;
 
+import mx.irving.lop.difficulty16.CutSticks;
+
+import java.util.Scanner;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -36,9 +40,11 @@ public class Main {
             System.out.println("" + tree.height());
         }*/
 
-        int [] data = {6, 7, 4, 9, 1 , 3, 2, 5, 8};
-        Sort sort = new Sort(data);
-        sort.quickSort(sort.getArray(), 0, data.length -1);
-        sort.print();
+        Scanner scanner = new Scanner(System.in);
+        scanner.nextLine();
+        String input = scanner.nextLine();
+        CutSticks cutSticks = new CutSticks(input);
+        cutSticks.startCut();
+//        cutSticks.print();
     }
 }

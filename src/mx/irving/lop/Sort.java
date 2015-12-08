@@ -12,7 +12,7 @@ public class Sort {
         array = input;
     }
 
-    public void quickSort(int [] array, int left, int right) {
+    public static void quickSort(int [] array, int left, int right) {
         int pivot = array[left];
         int i = left;
         int j = right;
