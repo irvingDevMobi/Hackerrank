@@ -59,26 +59,28 @@ public class AcmIcpcTeam {
     public void evaluate() {
         int maxAnswer = 0;
         int maxTeams = 0;
-        for(int person = 0; person < matrix.length - 2; person++) {
-            int answers = 0;
-            for (int topic = 0; topic < matrix[person].length; topic++) {
-                answers += matrix[person][topic] * matrix[person + 1][topic];
-            }
-            if (answers > maxAnswer) {
-                maxAnswer = answers;
-                maxTeams = 1;
-            } else if (answers == maxAnswer) {
-                maxTeams++;
+        for(int person = 0; person < matrix.length - 1; person++) {
+            for (int otherP = person +1; otherP < matrix.length; otherP++) {
+                int answers = 0;
+                for (int topic = 0; topic < matrix[person].length; topic++) {
+                    answers += matrix[person][topic] | matrix[otherP][topic];
+                }
+                if (answers > maxAnswer) {
+                    maxAnswer = answers;
+                    maxTeams = 1;
+                } else if (answers == maxAnswer) {
+                    maxTeams++;
+                }
             }
         }
-        System.out.println("" + maxAnswer);
-        System.out.println("" + maxTeams);
+        System.out.println(maxAnswer);
+        System.out.println(maxTeams);
     }
 
     public void print() {
         for (int[] aMatrix : matrix) {
             for (int anAMatrix : aMatrix) {
-                System.out.print("" + anAMatrix);
+                System.out.print(anAMatrix);
             }
             System.out.println();
         }
