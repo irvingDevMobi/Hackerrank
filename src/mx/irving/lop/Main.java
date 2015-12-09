@@ -1,6 +1,7 @@
 package mx.irving.lop;
 
 import mx.irving.lop.difficulty16.CutSticks;
+import mx.irving.lop.difficulty20.AcmIcpcTeam;
 
 import java.util.Scanner;
 
@@ -40,11 +41,22 @@ public class Main {
             System.out.println("" + tree.height());
         }*/
 
-        Scanner scanner = new Scanner(System.in);
+        /*Scanner scanner = new Scanner(System.in);
         scanner.nextLine();
         String input = scanner.nextLine();
         CutSticks cutSticks = new CutSticks(input);
-        cutSticks.startCut();
-//        cutSticks.print();
+        cutSticks.startCut();*/
+
+        Scanner scanner = new Scanner(System.in);
+        String input = scanner.nextLine();
+        String [] initValues = input.split(" ");
+        int n = Integer.parseInt(initValues[0]);
+        int m = Integer.parseInt(initValues[1]);
+        AcmIcpcTeam acmIcpcTeam = new AcmIcpcTeam(n, m);
+        for (int persons = 0; persons < n; persons++) {
+            acmIcpcTeam.fill(persons, scanner.nextLine());
+        }
+        acmIcpcTeam.evaluate();
+//        acmIcpcTeam.print();
     }
 }
