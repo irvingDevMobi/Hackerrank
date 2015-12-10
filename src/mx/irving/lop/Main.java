@@ -1,10 +1,6 @@
 package mx.irving.lop;
 
-import mx.irving.lop.difficulty16.CutSticks;
-import mx.irving.lop.difficulty20.AcmIcpcTeam;
 import mx.irving.lop.difficulty23.SherlockAndTheBeast;
-
-import java.util.Scanner;
 
 public class Main {
 
@@ -59,9 +55,8 @@ public class Main {
         }
         acmIcpcTeam.evaluate();*/
 
-        for(int i = 1; i < 31 ; i++) {
-            System.out.print(i + " ");
-            SherlockAndTheBeast.decentNumber(i);
+        for(int i = 1; i < 61 ; i++) {
+            System.out.printf("%d %.0f\n",i, SherlockAndTheBeast.decentNumber(i));
         }
     }
 }

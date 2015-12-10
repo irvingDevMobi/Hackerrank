@@ -1,5 +1,7 @@
 package mx.irving.lop.difficulty23;
 
+import java.math.BigDecimal;
+
 /**
  * Created by Irving Lop on 09/12/2015.
  * Problem Statement
@@ -58,24 +60,51 @@ package mx.irving.lop.difficulty23;
  */
 public class SherlockAndTheBeast {
 
-    public static long decentNumber(int digits) {
+    public static BigDecimal decentNumber(int digits) {
         int remainderTo5 = digits % 5;
         int remainderTo3 = digits % 3;
         int remainderTo6 = digits % 6;
         int remainderTo8 = digits % 8;
-        if (remainderTo5 == 0) {
-            System.out.println("all 5´s");
-        } else if(digits > 3 && remainderTo5 % 3 == 0) {
-            System.out.println("5 and then 3");
+        if (remainderTo3 == 0) {
+            return getNumberAdd(5, digits, 0);
+        } else if(remainderTo5 == 0) {
+            return getNumberAdd(3, digits, 0);
+//        } else if(digits > 3 && remainderTo5 % 3 == 0) {
+////            System.out.println("5 and then 3");
+//            return 55553;
+//        }
+//        else if (remainderTo3 == 5 || remainderTo6 == 0) {
+//            return
+//        } else if (remainderTo6 % 5 == 0 || remainderTo8 == 0) {
+//            System.out.println("5 and then 3 3s > 5s ");
+//        } else {
+//            System.out.println("-1");
+//            return -1;
         }
-        else if (remainderTo3 == 0 || remainderTo6 == 0) {
-            System.out.println("all 3´s");
-        } else if (remainderTo6 % 5 == 0 || remainderTo8 == 0) {
-            System.out.println("5 and then 3 3s > 5s ");
-        } else {
-            System.out.println("-1");
-            return -1;
+        return new BigDecimal(-1);
+    }
+
+    private static BigDecimal process(int digits) {
+        int chunks3 = 0;
+        int digitsRest = digits;
+        boolean continuar = true;
+        while (continuar) {
+            digitsRest = digits - 5;
+            if (digitsRest % 3 == 0) {
+
+            }
+            else if (digitsRest == 0) {
+
+            }
         }
-        return -1;
+        return new BigDecimal(-1);
+    }
+
+    private static BigDecimal getNumberAdd(int value, int maxPosition, int minPosition) {
+        BigDecimal add = new BigDecimal(0);
+        for (int position = minPosition; position < maxPosition; position++) {
+            add = add.add(new BigDecimal(value).multiply(new BigDecimal(10).pow(position)));
+        }
+        return add;
     }
 }
