@@ -2,6 +2,7 @@ package mx.irving.lop;
 
 import mx.irving.lop.difficulty16.CutSticks;
 import mx.irving.lop.difficulty20.AcmIcpcTeam;
+import mx.irving.lop.difficulty23.SherlockAndTheBeast;
 
 import java.util.Scanner;
 
@@ -47,7 +48,7 @@ public class Main {
         CutSticks cutSticks = new CutSticks(input);
         cutSticks.startCut();*/
 
-        Scanner scanner = new Scanner(System.in);
+        /*Scanner scanner = new Scanner(System.in);
         String input = scanner.nextLine();
         String [] initValues = input.split(" ");
         int n = Integer.parseInt(initValues[0]);
@@ -56,7 +57,11 @@ public class Main {
         for (int persons = 0; persons < n; persons++) {
             acmIcpcTeam.fill(persons, scanner.nextLine());
         }
-        acmIcpcTeam.evaluate();
-//        acmIcpcTeam.print();
+        acmIcpcTeam.evaluate();*/
+
+        for(int i = 1; i < 31 ; i++) {
+            System.out.print(i + " ");
+            SherlockAndTheBeast.decentNumber(i);
+        }
     }
 }
