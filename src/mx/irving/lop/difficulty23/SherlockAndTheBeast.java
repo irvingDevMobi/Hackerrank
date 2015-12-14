@@ -1,7 +1,5 @@
 package mx.irving.lop.difficulty23;
 
-import java.math.BigDecimal;
-
 /**
  * Created by Irving Lop on 09/12/2015.
  * Problem Statement
@@ -60,33 +58,68 @@ import java.math.BigDecimal;
  */
 public class SherlockAndTheBeast {
 
-    public static BigDecimal decentNumber(int digits) {
-        int remainderTo3 = digits % 3;
-        if (remainderTo3 == 0) {
-            return getNumberAdd(5, digits, 0);
-        } else return process(digits);
+    public static final String pattern5 = "555";
+    public static final String pattern3 = "33333";
+    public static final String error = "-1";
+
+    public static String getDecentNumber(int digits) {
+        if (digits % 3 == 0) {
+            return getNumberString(digits/3, pattern5);
+        } else {
+            return process(digits);
+        }
     }
 
-    private static BigDecimal process(int digits) {
-        int digitsRest = digits-5;
+    private static String process(int digits) {
+        int digitsRest = digits - 5;
         while (digitsRest > 0) {
             if (digitsRest % 3 == 0) {
-                int tope = digits - digitsRest;
-                return getNumberAdd(5, digits, tope).add(getNumberAdd(3, tope, 0));
+                int tres = digits - digitsRest;
+                return getNumberString(digitsRest/3, pattern5) + getNumberString(tres / 5, pattern3);
             }
             digitsRest  -= 5;
         }
         if (digitsRest == 0) {
-            return getNumberAdd(3, digits, 0);
+            return getNumberString(digits/5, pattern3);
         }
-        return new BigDecimal(-1);
+        return error;
     }
 
-    private static BigDecimal getNumberAdd(int value, int maxPosition, int minPosition) {
-        BigDecimal add = new BigDecimal(0);
-        for (int position = minPosition; position < maxPosition; position++) {
-            add = add.add(new BigDecimal(value).multiply(new BigDecimal(10).pow(position)));
+    private static String getNumberString(int repetitions, String pattern) {
+        StringBuilder builder = new StringBuilder(pattern);
+        for (int r = 1; r < repetitions; r++) {
+            builder.append(pattern);
         }
-        return add;
+        return builder.toString();
     }
+
+//    public static BigDecimal decentNumber(int digits) {
+//        int remainderTo3 = digits % 3;
+//        if (remainderTo3 == 0) {
+//            return getNumberAdd(5, digits, 0);
+//        } else return process(digits);
+//    }
+//
+//    private static BigDecimal process(int digits) {
+//        int digitsRest = digits-5;
+//        while (digitsRest > 0) {
+//            if (digitsRest % 3 == 0) {
+//                int tope = digits - digitsRest;
+//                return getNumberAdd(5, digits, tope).add(getNumberAdd(3, tope, 0));
+//            }
+//            digitsRest  -= 5;
+//        }
+//        if (digitsRest == 0) {
+//            return getNumberAdd(3, digits, 0);
+//        }
+//        return new BigDecimal(-1);
+//    }
+//
+//    private static BigDecimal getNumberAdd(int value, int maxPosition, int minPosition) {
+//        BigDecimal add = new BigDecimal(0);
+//        for (int position = minPosition; position < maxPosition; position++) {
+//            add = add.add(new BigDecimal(value).multiply(new BigDecimal(10).pow(position)));
+//        }
+//        return add;
+//    }
 }

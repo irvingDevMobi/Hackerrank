@@ -2,7 +2,6 @@ package mx.irving.lop;
 
 import mx.irving.lop.difficulty23.SherlockAndTheBeast;
 
-import java.math.BigDecimal;
 import java.util.Scanner;
 
 public class Main {
@@ -58,15 +57,18 @@ public class Main {
         }
         acmIcpcTeam.evaluate();*/
 
+//        for (int d = 1; d < 61; d++) {
+//            System.out.println(d + " " + SherlockAndTheBeast.getDecentNumber(d));
+//        }
+
         Scanner scanner = new Scanner(System.in);
         int tests = Integer.parseInt(scanner.nextLine());
-        BigDecimal[] outValue = new BigDecimal[tests];
+        int[] testValue = new int[tests];
         for(int t = 0; t < tests ; t++) {
-            int digits = Integer.parseInt(scanner.nextLine());
-            outValue [t] = SherlockAndTheBeast.decentNumber(digits);
+             testValue [t] = Integer.parseInt(scanner.nextLine());
         }
-        for (BigDecimal decimal : outValue) {
-            System.out.printf("%.0f\n", decimal);
+        for (int value : testValue) {
+            System.out.println(SherlockAndTheBeast.getDecentNumber(value));
         }
     }
 }
