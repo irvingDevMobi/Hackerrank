@@ -61,41 +61,23 @@ import java.math.BigDecimal;
 public class SherlockAndTheBeast {
 
     public static BigDecimal decentNumber(int digits) {
-        int remainderTo5 = digits % 5;
         int remainderTo3 = digits % 3;
-        int remainderTo6 = digits % 6;
-        int remainderTo8 = digits % 8;
         if (remainderTo3 == 0) {
             return getNumberAdd(5, digits, 0);
-        } else if(remainderTo5 == 0) {
-            return getNumberAdd(3, digits, 0);
-//        } else if(digits > 3 && remainderTo5 % 3 == 0) {
-////            System.out.println("5 and then 3");
-//            return 55553;
-//        }
-//        else if (remainderTo3 == 5 || remainderTo6 == 0) {
-//            return
-//        } else if (remainderTo6 % 5 == 0 || remainderTo8 == 0) {
-//            System.out.println("5 and then 3 3s > 5s ");
-//        } else {
-//            System.out.println("-1");
-//            return -1;
-        }
-        return new BigDecimal(-1);
+        } else return process(digits);
     }
 
     private static BigDecimal process(int digits) {
-        int chunks3 = 0;
-        int digitsRest = digits;
-        boolean continuar = true;
-        while (continuar) {
-            digitsRest = digits - 5;
+        int digitsRest = digits-5;
+        while (digitsRest > 0) {
             if (digitsRest % 3 == 0) {
-
+                int tope = digits - digitsRest;
+                return getNumberAdd(5, digits, tope).add(getNumberAdd(3, tope, 0));
             }
-            else if (digitsRest == 0) {
-
-            }
+            digitsRest  -= 5;
+        }
+        if (digitsRest == 0) {
+            return getNumberAdd(3, digits, 0);
         }
         return new BigDecimal(-1);
     }
