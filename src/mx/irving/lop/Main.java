@@ -1,6 +1,7 @@
 package mx.irving.lop;
 
 import mx.irving.lop.difficulty23.SherlockAndTheBeast;
+import mx.irving.lop.difficulty28.Encryption;
 
 import java.util.Scanner;
 
@@ -61,7 +62,7 @@ public class Main {
 //            System.out.println(d + " " + SherlockAndTheBeast.getDecentNumber(d));
 //        }
 
-        Scanner scanner = new Scanner(System.in);
+        /*Scanner scanner = new Scanner(System.in);
         int tests = Integer.parseInt(scanner.nextLine());
         int[] testValue = new int[tests];
         for(int t = 0; t < tests ; t++) {
@@ -69,6 +70,10 @@ public class Main {
         }
         for (int value : testValue) {
             System.out.println(SherlockAndTheBeast.getDecentNumber(value));
-        }
+        }*/
+
+        Scanner scanner = new Scanner(System.in);
+        Encryption encryption = new Encryption(scanner.nextLine());
+        System.out.println(encryption.getMessage());
     }
 }
