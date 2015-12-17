@@ -1,8 +1,5 @@
 package mx.irving.lop.difficulty55;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * Created by Irving Lop on 15/12/2015.
  * Problem Statement
@@ -34,26 +31,34 @@ import java.util.List;
 public class MatrixRotation {
 
     private String [][] matrixInput;
-    private List<List<String>> matrixPivot;
+    private int [] index;
 
     public MatrixRotation(int rows, int columns) {
         matrixInput = new String[rows][columns];
-        matrixPivot = new ArrayList<>();
     }
 
     public void fillRow(int row, String line) {
         matrixInput [row] = line.split(" ");
     }
 
-    private void generateMatrixPivot() {
-        int [] matrixLength = {matrixInput.length, matrixInput[0].length};
+    public void rotate() {
+        int [] matrixLengths = {matrixInput.length, matrixInput[0].length};
         int startIndex = 0;
-        while (matrixLength[0] >= 2 && matrixLength[1] >= 2) {
-            for (int row = startIndex; row < matrixLength[1]; row++) {
+        while (matrixLengths[0] >= 2 && matrixLengths[1] >= 2) {
+//            for (int row = startIndex; row < matrixLength[1]; row++) {
+//
+//            }
+            System.out.println(arcSize(matrixLengths[0], matrixLengths[1]));
+            matrixLengths[0] -= 2;
+            matrixLengths[1] -= 2;
+        }
+    }
 
-            }
-            matrixLength[0]--;
-            matrixLength[1]--;
+    private int arcSize(int row, int column) {
+        if (row == 2 || column == 2) {
+            return row * column;
+        } else {
+            return row * column - Math.abs((row-2) * (column-2));
         }
     }
 }

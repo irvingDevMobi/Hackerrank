@@ -1,7 +1,6 @@
 package mx.irving.lop;
 
-import mx.irving.lop.difficulty23.SherlockAndTheBeast;
-import mx.irving.lop.difficulty28.Encryption;
+import mx.irving.lop.difficulty55.MatrixRotation;
 
 import java.util.Scanner;
 
@@ -72,8 +71,13 @@ public class Main {
             System.out.println(SherlockAndTheBeast.getDecentNumber(value));
         }*/
 
-        Scanner scanner = new Scanner(System.in);
+/*        Scanner scanner = new Scanner(System.in);
         Encryption encryption = new Encryption(scanner.nextLine());
-        System.out.println(encryption.getMessage());
+        System.out.println(encryption.getMessage());*/
+
+        Scanner scanner = new Scanner(System.in);
+        String [] sizes = scanner.nextLine().split(" ");
+        MatrixRotation matrixRotation = new MatrixRotation(Integer.parseInt(sizes[0]), Integer.parseInt(sizes[1]));
+        matrixRotation.rotate();
     }
 }
