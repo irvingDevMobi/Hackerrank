@@ -1,5 +1,8 @@
 package mx.irving.lop.difficulty55;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by Irving Lop on 15/12/2015.
  * Problem Statement
@@ -31,10 +34,11 @@ package mx.irving.lop.difficulty55;
 public class MatrixRotation {
 
     private String [][] matrixInput;
-    private String [][] matrixPivot;
+    private List<List<String>> matrixPivot;
 
     public MatrixRotation(int rows, int columns) {
         matrixInput = new String[rows][columns];
+        matrixPivot = new ArrayList<>();
     }
 
     public void fillRow(int row, String line) {
@@ -42,6 +46,14 @@ public class MatrixRotation {
     }
 
     private void generateMatrixPivot() {
+        int [] matrixLength = {matrixInput.length, matrixInput[0].length};
+        int startIndex = 0;
+        while (matrixLength[0] >= 2 && matrixLength[1] >= 2) {
+            for (int row = startIndex; row < matrixLength[1]; row++) {
 
+            }
+            matrixLength[0]--;
+            matrixLength[1]--;
+        }
     }
 }
