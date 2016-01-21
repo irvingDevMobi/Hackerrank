@@ -1,5 +1,7 @@
 package mx.irving.lop.difficulty55;
 
+import java.util.List;
+
 /**
  * Created by Irving Lop on 15/12/2015.
  * Problem Statement
@@ -31,26 +33,35 @@ package mx.irving.lop.difficulty55;
 public class MatrixRotation {
 
     private String [][] matrixInput;
-    private int [] index;
+    private String [][] matrixRotated;
+    private List<Integer> indexes;
 
     public MatrixRotation(int rows, int columns) {
         matrixInput = new String[rows][columns];
+        matrixRotated = new String[rows][columns];
+        init();
     }
 
     public void fillRow(int row, String line) {
         matrixInput [row] = line.split(" ");
     }
 
-    public void rotate() {
+    private void init() {
         int [] matrixLengths = {matrixInput.length, matrixInput[0].length};
-        int startIndex = 0;
         while (matrixLengths[0] >= 2 && matrixLengths[1] >= 2) {
-//            for (int row = startIndex; row < matrixLength[1]; row++) {
-//
-//            }
-            System.out.println(arcSize(matrixLengths[0], matrixLengths[1]));
+            indexes.add(arcSize(matrixLengths[0], matrixLengths[1]));
             matrixLengths[0] -= 2;
             matrixLengths[1] -= 2;
+        }
+    }
+
+    public void rotate(int rTimes) {
+
+        int startIndex = 0;
+        for (int index : indexes) {
+//            for (int row = startIndex; row < matrixLength[1] - startIndex; row++) {
+//
+//            }
         }
     }
 
