@@ -78,6 +78,6 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         String [] sizes = scanner.nextLine().split(" ");
         MatrixRotation matrixRotation = new MatrixRotation(Integer.parseInt(sizes[0]), Integer.parseInt(sizes[1]));
-        matrixRotation.rotate();
+//        matrixRotation.rotate();
     }
 }
