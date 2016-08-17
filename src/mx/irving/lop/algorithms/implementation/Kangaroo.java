@@ -1,4 +1,4 @@
-package mx.irving.lop.difficulty.easy;
+package mx.irving.lop.algorithms.implementation;
 
 import java.util.Scanner;
 
@@ -50,7 +50,7 @@ import java.util.Scanner;
  location (i.e., x2 > x1). Because the second kangaroo moves at a faster rate (meaning v2 > v1) and is already ahead of
  the first kangaroo, the first kangaroo will never be able to catch up. Thus, we print NO.
  */
-public class Solution {
+public class Kangaroo {
 
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
